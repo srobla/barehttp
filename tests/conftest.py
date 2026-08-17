@@ -22,6 +22,7 @@ import socket
 import subprocess
 import textwrap
 import time
+import sys
 
 import pytest
 
@@ -53,30 +54,33 @@ def _wait_for_port(port, timeout=STARTUP_TIMEOUT):
 
 @pytest.fixture
 def docroot(tmp_path):
-    """A minimal document root: static file, large file, and a CGI script."""
+    """A minimal document root: static file, large file, pdf, and a CGI script."""
     root = tmp_path / "www"
     root.mkdir()
 
     (root / "index.html").write_text("<html><body>hello</body></html>")
-    (root / "big.bin").write_bytes(os.urandom(2 * 1024 * 1024))  # 2MB
+    (root / "big.bin").write_bytes(os.urandom(20 * 1024 * 1024))  # 20MB
+    (root / "example.pdf").write_bytes(os.urandom(10))
 
     cgi = root / "cgi-bin"
     cgi.mkdir()
     script = cgi / "hello.py"
-    script.write_text(
-        textwrap.dedent(
-            """\
-            #!/usr/bin/env python3
+    script_body = f"""\
+            #!{sys.executable} python3
             import sys
-            body = b"hello from cgi"
-            sys.stdout.write(
-                "Content-Type: text/plain\\r\\nContent-Length: %d\\r\\n\\r\\n" % len(body)
-            )
+            import os
+            marker = os.path.join(os.path.dirname(__file__), "../cgi-executed.marker")
+            with open(marker, "w") as f:
+            f.write("CGI EXECUTED\\n")
+            print("Content-Type: text/html")
+            print()
+            print(hello from cgi)
+            sys.stdout.write("hellooooo from cgi")
             sys.stdout.flush()
-            sys.stdout.buffer.write(body)
             """
-        )
-    )
+    print()
+    print(script_body)
+    script.write_text(textwrap.dedent(script_body))
     script.chmod(0o755)
 
     return root

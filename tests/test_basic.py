@@ -18,13 +18,12 @@ def test_nonexistent_file_is_404(server):
 
 def test_unsupported_method_rejected(server):
     r = requests.request("PUT", f"{server}/")
-    # ADJUST: confirm which of these your server actually returns
-    assert r.status_code in (405, 501)
+    assert r.status_code == 405
 
 
 def test_options_ok(server):
     r = requests.options(f"{server}/")
-    assert r.status_code in (200, 204)
+    assert r.status_code == 204
 
 
 def test_content_length_matches_body(server):
@@ -36,10 +35,36 @@ def test_content_length_matches_body(server):
 def test_large_file_download_is_complete(server):
     r = requests.get(f"{server}/big.bin")
     assert r.status_code == 200
-    assert len(r.content) == 2 * 1024 * 1024
+    assert len(r.content) == 20 * 1024 * 1024
 
 
 def test_server_signature_present(server):
-    # sanity check that server.conf is actually being read
     r = requests.get(f"{server}/")
     assert r.status_code == 200
+
+
+#TODO: Update when updating to 1.1
+def test_connection_close(server):
+    r = requests.get(f"{server}/")
+    assert "Connection" in r.headers
+    assert r.headers["Connection"] == "Close"
+
+
+def test_mime_type(server):
+    r = requests.get(f"{server}/")
+    assert "Content-Type" in r.headers
+    assert "html" in r.headers["Content-Type"]
+    r = requests.get(f"{server}/example.pdf")
+    print(r.status_code)
+    print(r.text)
+    print(r.headers)
+    assert "Content-Type" in r.headers
+    assert "application/pdf" in r.headers["Content-Type"]
+
+
+def test_cgi_get(server):
+    r = requests.get(f"{server}/cgi-bin/hello.py?name=bob")
+    print(r.status_code)
+    print(r.headers)
+    print(r.text)
+    assert "hello" in r.text
