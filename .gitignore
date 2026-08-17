@@ -1,7 +1,7 @@
 # Build
 obj/
 lib/
-servidor
+server
 
 # Doc
 doc/html/
@@ -16,3 +16,7 @@ logs/*
 # Dev
 shell.nix
 .clangd
+
+# Tests
+tests/venv
+tests/__pycache__

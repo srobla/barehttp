@@ -209,7 +209,7 @@ int main(){
             setsockopt(clientfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
         get_client_ip_port(clientfd, ip_port_str, lf);
         queue_push(cq, clientfd, &sigint);
-        logs_print(LOG_INFO, lf, "New connection added to queue: %d", ip_port_str);
+        logs_print(LOG_INFO, lf, "New connection added to queue: descriptor %d", clientfd);
     }
 
     logs_print(LOG_INFO, lf, "SIGINT received, shutting down server", sc->listen_port);
@@ -271,7 +271,7 @@ void *thread_function(void *arg) {
 
         queue_add_active_fd(cq, clientfd, id);
         get_client_ip_port(clientfd, ip_port_str, lf);
-        logs_print(LOG_INFO, lf, "Connection accepted by thread %d - client %d", id, ip_port_str);
+        logs_print(LOG_INFO, lf, "Connection accepted by thread %d - descriptor %d - client %s", id, clientfd, ip_port_str);
 
         open_con = 1;
         /* Reads til full header is read */
@@ -286,7 +286,7 @@ void *thread_function(void *arg) {
             if(bytes_read == -1){
                 if(errno == EAGAIN){
                     /* timeout */
-                    logs_print(LOG_INFO, lf, "Connection with client %d closed by timeout", ip_port_str);
+                    logs_print(LOG_INFO, lf, "Connection %d closed by timeout", clientfd);
                 }else{
                     /* Internal error response */
                     error_sring = strerror(errno);
@@ -330,7 +330,7 @@ void *thread_function(void *arg) {
             bytes_read = tcp_recv(clientfd, buff + buff_len, MAX_BUFFR - buff_len);
             if(bytes_read == 0){
                 /* Connection closed by client if recv returns 0 */
-                logs_print(LOG_INFO, lf, "Client %d closed connection", ip_port_str);
+                logs_print(LOG_INFO, lf, "Client %s closed connection", ip_port_str);
                 open_con = 0;
                 break;
             }
@@ -372,7 +372,7 @@ void *thread_function(void *arg) {
         buff_len = 0;
         last_len = 0;
 
-        logs_print(LOG_INFO, lf, "Closing connection %d", ip_port_str);
+        logs_print(LOG_INFO, lf, "Closing connection %d", clientfd);
     }
 
  

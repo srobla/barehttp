@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 int tcp_start_connection(int *sockfd, int port, int max_conns){
-    int ret;
+    int ret, opt=1;
     struct sockaddr_in sock_struct;
 
     if(!sockfd){
@@ -35,15 +35,24 @@ int tcp_start_connection(int *sockfd, int port, int max_conns){
     /* INADDR_ANY == 0 */
     sock_struct.sin_addr.s_addr = htonl(INADDR_ANY);
 
+    /* Set SO_REUSEADDR for avoiding TIME_WAIT waits */
+    if (setsockopt(*sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
+        perror("setsockopt");
+        close(*sockfd);
+        return -1;
+}
+
     ret = bind(*sockfd, (struct sockaddr*)&sock_struct, sizeof(sock_struct));
     if(ret) {
         perror("Error binding socket");
+        close(*sockfd);
         return -1;
     }
 
     ret = listen(*sockfd, max_conns);
     if(ret == -1) {
         perror("Error listening");
+        close(*sockfd);
         return -1;
     }
 
