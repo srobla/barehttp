@@ -7,7 +7,7 @@ import requests
 
 def test_index_ok(server):
     r = requests.get(f"{server}/")
-    assert r.status_code == 201
+    assert r.status_code == 200
     assert "hello" in r.text
 
 
