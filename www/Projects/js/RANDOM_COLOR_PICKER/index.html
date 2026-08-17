@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Picker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">Random Color Picker</h1>
+    </header>
+    <main>
+        <div id="container">
+            <section id="tile">
+                <h2 id="colorCode">#000000</h2>
+                <p id="guide">Click the button to get a raondom color</p>
+                <button id="but" onclick="randomColor(this)">NEW COLOR</button>
+            </section>
+            <template>
+                <section id="tile">
+                    <h2 id="colorCode">#000000</h2>
+                    <p id="guide">Click the button to get a raondom color</p>
+                    <button id="but" onclick="randomColor(this)">NEW COLOR</button>
+                </section>
+            </template>
+            <div id="more">
+                <button id="addtile" onclick="addTile()">+</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="signature">
+            <p><a href="https://saxxe-dev.github.io" target="_blank">srobla 09/2022</a></p>
+        </div>
+    </footer>
+    <script src="randomColorPicker.js"></script>
+</body>
+</html>

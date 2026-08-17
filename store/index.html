@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Collection Protocol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>The Collection Protocol</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="inicio">
+        <div class="bienvenida">
+            <h2>Bienvenido a The Collection Protocol</h2>
+            <p>Tu tienda de mangas, comics y figuras favorita.</p>
+        </div>
+    </section>
+    <section id="catalogo">
+        <h2>Catálogo de Productos</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="productos/producto_funko_my_hero.jpg" alt="FunkoPop My Hero Academia">
+                <h3>FunkoPop My Hero Academia</h3>
+                <p>$34.99</p>
+                <form action="carrito/agregar_producto.py" method="POST">
+                    <input type="hidden" name="producto" value="FunkoPop My Hero Academia">
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </div>
+            <div class="producto">
+                <img src="productos/producto_one_piece_luffy.jpg" alt="One Piece Luffy">
+                <h3>One Piece Luffy</h3>
+                <p>$20.99</p>
+                <form action="carrito/agregar_producto.py" method="POST">
+                    <input type="hidden" name="producto" value="One Piece Luffy">
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </div>
+            <div class="producto">
+                <img src="productos/producto_one_piece_sanji.jpg" alt="One Piece Sanji">
+                <h3>One Piece Sanji</h3>
+                <p>$25.99</p>
+                <form action="carrito/agregar_producto.py" method="POST">
+                    <input type="hidden" name="producto" value="One Piece Sanji">
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </div>
+            <div class="producto">
+                <img src="productos/producto_manga_berserk.jpg" alt="Berserk Manga">
+                <h3>Berserk Manga</h3>
+                <p>$18.50</p>
+                <form action="carrito/agregar_producto.py" method="POST">
+                    <input type="hidden" name="producto" value="Berserk Manga">
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de carrito de compras -->
+    <section id="carrito">
+        <h2>Gestión del Carrito</h2>
+        <div class="acciones-carrito">
+            <form action="carrito/mostrar_carrito.py" method="GET">
+                <button type="submit" class="btn-accion btn-ver">Ver Carrito</button>
+            </form>
+
+            <form action="carrito/borrar_carrito.py" method="POST">
+                <button type="submit" class="btn-accion btn-borrar">Vaciar Todo el Carrito</button>
+            </form>
+        </div>
+    </section>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Para consultas, escríbenos a <a href="mailto:thecollectionprotocol@tcp.com">thecollectionprotocol@tcp.com</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 TCP. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

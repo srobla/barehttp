@@ -1,0 +1,116 @@
+:root{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --background: rgb(36, 36, 36);
+    --main-background: rgb(208, 197, 213);
+    --output: rgb(177, 177, 177);
+    --output-text: rgb(0, 0, 0);
+    --orange: rgb(255, 149, 0);
+    --white: rgb(255, 255, 255);
+    --grey: rgb(99, 99, 99);
+    --history: rgb(67, 67, 67);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    border-radius: 35px;
+    margin: 0 6px;
+    box-shadow: -3px 3px wheat;
+    cursor: pointer;
+}
+
+button:active{
+    border-style: outset;
+    box-shadow: -1px 1px wheat;
+    transform: translate(-2px, 2px);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-background);
+    height: 100vh;
+}
+
+#calculator{
+    box-sizing: content-box;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: -8px 8px rgb(108, 98, 79);
+}
+
+#output{
+    background-color: var(--output);
+    width: 400px;
+    height: 100px;
+    text-align: right;
+    border-radius: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    box-shadow: inset -4px 4px rgb(146, 146, 146);
+}
+
+#outputText{
+    color: var(--output-text);
+    font-size: 40px;
+}
+
+#history{
+    color: var(--history);
+}
+
+#keys{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 400px;
+}
+
+.zero{
+    width: 180px;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.orange{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+footer{
+    background-color: rgb(0, 151, 151);
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    text-align: center;
+    font-size: 20px;
+    height: 3rem;
+    padding-top: 1rem;
+}
+
+#signature{
+    color: var(--output);
+    text-decoration: none;
+}
+
+#signature:hover{
+    color: var(--white);
+}

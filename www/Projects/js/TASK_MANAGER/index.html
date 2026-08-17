@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <header>
+        <h1 id="title">Task Manager</h1>
+    </header>
+    <main>
+        <div id="manager">
+            <div id="taskGroup">
+                <textarea name="taskGroupName" id="taskGroupName" class="area">Gruop 1</textarea>
+                <button id="deleteTaskGroup" onclick="deleteTaskGroup(this)"><i class="fa-solid fa-delete-left"></i></button>
+                <div id="taskContainer">
+                    <div id="task" class="unchecked">
+                        <textarea name="taskDescription" id="taskDescription" class="area" cols="30" rows="1">Task 1</textarea>
+                        <button id="reTaskButton" onclick="uncheckTask(this)"><i class="fa-solid fa-xmark"></i></button>
+                        <button id="checkButton" onclick="checkTask(this)"><i class="fa-solid fa-check"></i></button>
+                        <button id="trashButton" onclick="deleteTask(this)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    <div id="addTaskButton">
+                        <button id="addTask" onclick="addTask(this)">+</button>
+                    </div>
+                    <template id="taskTemplate">
+                        <div id="task" class="unchecked">
+                            <textarea name="taskDescription" id="taskDescription" class="area" cols="30" rows="1">Task 1</textarea>
+                            <button id="reTaskButton" onclick="uncheckTask(this)"><i class="fa-solid fa-xmark"></i></button>
+                            <button id="checkButton" onclick="checkTask(this)"><i class="fa-solid fa-check"></i></button>
+                            <button id="trashButton" onclick="deleteTask(this)"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <template id="taskGroupTemplate">
+                <div id="taskGroup">
+                    <textarea name="taskGroupName" id="taskGroupName" class="area">Gruop 1</textarea>
+                    <button id="deleteTaskGroup" onclick="deleteTaskGroup(this)"><i class="fa-solid fa-delete-left"></i></button>
+                    <div id="taskContainer">
+                        <div id="task" class="unchecked">
+                            <textarea name="taskDescription" id="taskDescription" class="area" cols="30" rows="1">Task 1</textarea>
+                            <button id="reTaskButton" onclick="uncheckTask(this)"><i class="fa-solid fa-xmark"></i></button>
+                            <button id="checkButton" onclick="checkTask(this)"><i class="fa-solid fa-check"></i></button>
+                            <button id="trashButton" onclick="deleteTask(this)"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                        <div id="addTaskButton">
+                            <button id="addTask" onclick="addTask(this)">+</button>
+                        </div>
+                    </div>
+            </template>
+            <div id="addTaskGroupButton">
+                <button id="addTaskGroup" onclick="addTaskGroup(this)">+</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="signature">
+            <p><a href="https://saxxe-dev.github.io" target="_blank">srobla 09/2022</a></p>
+        </div>
+    </footer>
+    <script src="taskManager.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Build
+obj/
+lib/
+servidor
+
+# Doc
+doc/html/
+
+# Logs
+logs/*
+
+# Temp
+*.tmp
+*.pdf
+
+# Dev
+shell.nix
+.clangd

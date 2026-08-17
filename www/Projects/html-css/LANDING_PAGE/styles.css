@@ -1,0 +1,196 @@
+:root{
+    --dark-background: #1f2937;
+    --hero-main: #f9faf8;
+    --hero-secondary: #e5e7eb;
+    --call-to-action: #3882f6;
+    --information-header: #1f2937;
+    --quote-background: #e5e7eb;
+    --quote-text: #1f2937;
+}
+
+*{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    background-color: var(--call-to-action);
+    color: var(--hero-main);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 30px;
+    border-radius: 12px;
+}
+
+header{
+    background-color: var(--dark-background);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 12px;
+}
+
+header h1{
+    color: var(--hero-main);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    gap: 1.5em;
+}
+
+header ul li a{
+    text-decoration: none;
+    color: var(--hero-secondary);
+    font-size: 18px;
+}
+
+.main{
+    background-color: var(--dark-background);
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding: 100px 0;
+}
+
+.main .text{
+    width: 450px;
+}
+
+.main .text h1{
+    color: var(--hero-main);
+    margin: 12px 0;
+    font-size: 48px;
+    font-weight: 1000;
+}
+
+.main .text p{
+    color: var(--hero-secondary);
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.main .image{
+    background-color: #434343;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main .image p{
+    color: var(--hero-secondary);
+}
+
+.information h2{
+    text-align: center;
+    margin: 32px 0;
+    font-size: 36px;
+    font-weight: bolder;
+    color: var(--information-header);
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.card{
+    width: 150px;
+}
+
+.card-image{
+    width: 150px;
+    height: 150px;
+    border-color: var(--call-to-action);
+    border-width: 4px;
+    border-radius: 9px;
+    border-style: solid;
+}
+
+.card p{
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(45, 45, 45);
+    font-size: 16px;
+}
+
+.quote{
+    display: flex;
+    margin-top: 100px;
+    background-color: var(--quote-background);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px;
+
+}
+
+.quote p{
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--quote-text);
+    width: 760px;
+}
+
+.quote .author{
+    color: black;
+    font-size: 24px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.signup{
+    background-color: var(--call-to-action);
+    margin: 100px 300px;
+    padding: 50px 75px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.signup .text{
+    color: var(--hero-main);
+}
+
+.signup button{
+    background-color: var(--call-to-action);
+    border: 2px solid white;
+}
+
+footer{
+    background-color: var(--dark-background);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+#signature{
+	text-align: center;
+	font-size: 1.2rem;
+	display: block;
+	width: auto;	
+    font-style: italic;
+}
+
+#signature a{
+    color: var(--call-to-action);
+    text-decoration: none;
+}
+
+#awwe a:hover{
+    color: white;
+}

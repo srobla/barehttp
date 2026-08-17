@@ -1,0 +1,143 @@
+
+html{
+    font-size: 18px;
+}
+
+body{
+    background-color: #e0ebeb;
+    font-family: monospace;
+}
+nav{
+    background-color: #bfcac9;
+    color: aqua;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 300px;
+}
+nav header{
+    font-size: 2rem;
+    color: black;
+    padding: 10px 5px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+}
+nav a{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    padding: 15px 10px;
+    border: solid black 1px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover{
+    z-index: 3;
+    zoom: 110%;
+    background-color: black;
+    color: ghostwhite;
+}
+main{
+    background-color: #e0ebeb;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: black;
+    float: right;
+    margin-left: 310px;
+}
+
+#main-doc header{
+    font-size: 1.5rem;
+    font-weight: 550;
+    padding-left: 0.8rem;
+    margin-top: 2em;
+    text-decoration: solid;
+}
+
+#main-doc p{
+    padding-left: 1rem;
+}
+
+.divider{
+    display: block;
+    width: 40%;
+    height: 2px;
+    background-color: black;
+    margin: 10px auto;
+}
+
+code{
+    background-color: #24527a;
+    color: greenyellow;
+    width: 90%;
+    padding: 0px 1rem;
+    display: block;
+    white-space: pre-line;
+    margin-right: 50px;
+    margin-left: 1rem;
+    border-radius: 10px;
+    border: solid black 1px
+}
+
+.no-box{
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+.input{
+    color: orange;
+}
+code br{
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 815px) {
+    nav {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-height: 275px;
+        max-height: 3rem;
+    }
+    nav a {
+        display: none;
+    }
+    nav header{
+        text-align: center;
+    }
+    main{
+        position: relative;
+        margin-top: 3rem;
+        margin-left: 0;
+        float: inline-end;
+        width: 100%;
+    }
+    
+}
+
+
+#signature{
+	text-align: center;
+	font-size: 18px;
+	display: block;
+	margin-left: 310px;
+	margin-right: auto;
+    bottom:5px;
+	width: auto;	
+    font-style: italic;
+}
+
+#signature a{
+    color: gray;
+    text-decoration: none;
+}
+
+#signature a:hover{
+    color: black;
+}
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Python fundamentals</title>
+    </head>
+    <body>
+        <nav id="navbar">
+            <header>Python Fundamentals</header>
+            <a href="#What_is_Python?" class="nav-link">What is Python?</a>
+            <a href="#About_Python" class="nav-link">About Python</a>
+            <a href="#Syntax" class="nav-link">Syntax</a>
+            <a href="#Variables" class="nav-link">Variables</a>
+            <a href="#Data_Types" class="nav-link">Data Types</a>
+            <a href="#Operators" class="nav-link">Operators</a>
+            <a href="#Statements_and_loops" class="nav-link">Statements and loops</a>
+            <a href="#Reference" class="nav-link">Reference</a>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="What_is_Python?">
+                <header>What is Python?</header>
+                <p>Python is a popular general-purpose programming language that can be used for a wide variety of applications. It includes high-level data structures, dynamic typing, dynamic binding, and many more features that make it as useful for complex application development as it is for scripting or "glue code" that connects components together. It can also be extended to make system calls to almost all operating systems and to run code written in C or C++. Due to its ubiquity and ability to run on nearly every system architecture, Python is a universal language found in a variety of different applications.</p>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="About_Python">
+                <header>About Python</header>
+                <p>Python was conceived in the late 1980s by Guido van Rossum at Centrum Wiskunde & Informatica (CWI) in the Netherlands as a successor to the ABC programming language, which was inspired by SETL, capable of exception handling and interfacing with the Amoeba operating system.</p>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Syntax">
+                <header>Syntax</header>
+                <p>Unlike other lenguages, python uses whitespace and indentation to structure the code: </p>
+                <code> <span class="input">>>></span> print("Hello World")
+                </code>
+                <p>Python uses "#" to comment: </p>
+                <code>#This is a python comment
+                </code>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Variables">
+                <header>Variables</header>
+                <p>Variables are like containers, used to store values. To create a variable, write the name of the variable and asign it a value:</p>
+                <code> <span class="input">>>></span> variable_name = value</code>
+                <p>For example: </p>
+                <code> <span class="input">>>></span> message = "Hello"
+                    <span class="input">>>></span> Number = 9</code>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Data_Types">
+                <header>Data Types</header>
+                <p>Python has the following data types by default:</p>
+                <ul id="Data_types_table">
+                    <li><p><span class="bold">Str</span>(string) Used to store text:</p>
+                    <code class="no-box"><span class="input">>>></span> my_str = "Hello World"</code></li>
+                    <li><p><span class="bold">Int</span>(Integer) Used to store numbers without decimal points:</p>
+                    <code class="no-box"><span class="input">>>></span> my_int = 5</code></li>
+                    <li><p><span class="bold">Float</span>(Floating-point) Used to store numbers with decimal points:</p>
+                    <code class="no-box"><span class="input">>>></span> my_float = 3.14</code></li>
+                    <li><p><span class="bold">Bool</span>(Boolean) Used to store binary data, that can only be one of two possible values (True or False):</p>
+                    <code class="no-box"><span class="input">>>></span> my_bool = True</code></li>
+                    <li><p><span class="bold">List</span>(string) Used to store multiple items in a single variable:</p>
+                    <code class="no-box"><span class="input">>>></span> my_list = [1, "dog", 20.8, True]"</code></li>
+                </ul>
+                <p>We use type() function to return the data type of a variable:</p>
+                <code><span class="input">>>></span> print(type(my_str))
+                    &#60;class 'str'&#62;</code>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Operators">
+                <header>Operators</header>
+                <h3>Comparision Operators</h3>
+                <p>In Python, we use Comparison operators to compare a value with another value, the basic comparison operators are: </p>
+                <ul id="operator_list">
+                    <li><p>Less than <code class="no-box">(&#60;)</code></p></li>
+                    <li><p>Less than or equal <code class="no-box">(&#60; &#61;)</code></p></li>
+                    <li><p>Greater than <code class="no-box">(&#62;)</code></p></li>
+                    <li><p>Greater than or equal to <code class="no-box">(&#62; &#61;)</code></p></li>
+                    <li><p>Equal to <code class="no-box">(&#61; &#61;)</code></p></li>
+                    <li><p>Not equal to <code class="no-box">(&#33; &#61;)</code></p></li>
+                </ul>
+                <p>Example, comparing two integers: </p>
+                <code><span class="input">>>></span> int1 = 5
+                    <span class="input">>>></span> int2 = 10 
+                    <span class="input">>>></span> print(int1 &#60; int2) 
+                    <span class="input">>>></span> print(int1 &#61;&#61; int2)
+                    True #Is true that 5 is less than 6
+                    False #Is not true that 5 = 6</code>
+                <h3>Logical Operators</h3>
+                <p>We use logical operators to check multiple conditions at the same time, Python logical operators are:</p>
+                <ul id="logical_operator_list">
+                    <li> <p> <code class="no-box">and</code> Used to check if two conditions are true at the same time</p><code> <span class="input">>>></span> 6 > 2 and 7 == 7
+                        True</code class="no-box"></li>
+                    <li> <p> <code class="no-box">or</code> Used to check if one on check if either or both conditions are true</p><code> <span class="input">>>></span> 2 > 1 or 9 == 3
+                        True</code></li>
+                    <li> <p> <code class="no-box">not</code> Reverses the result of a condition</p><code> <span class="input">>>></span> not False
+                        True</code></li>
+                </ul>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Statements_and_loops">
+                <header>Statements and loops</header>
+                <p>In Python we use statements and loops to control the logic and flow of the code, basic statements and loops are: </p>
+                <ul id="statements_and_loops_table">
+                    <li><p>If Else statement: We use this to execute a piece of code if a condition is true: </p> <code><span class="input">>>></span> int1 = 3 
+                        <span class="input">>>></span> int2 = 9
+                        <span class="input">>>></span> if int1 < int2 : print("int1 is smaller than int2")
+                        int1 is smaller than int2</code></li>
+                    <li><p>For loop: We use the for loop execute a piece of code multiple times, if a condition is true: </p> <code><span class="input">>>></span> my_list = ["dog", "cat", 5, 23, 90.7]
+                        <span class="input">>>></span> for element in my_list: print(element) #for each element in my_list variable, print the element. This would repeat for every element in the list 
+                        dog
+                        cat
+                        5 
+                        23
+                        90.7</code></li>
+                    <li><p>While loop: We use this loop to repeat a piece of code as long as a condition is true</p> <code> <span class="input">>>></span> my_bool = True
+                        <span class="input">>>></span> While my_bool: print("The condition is true")
+                        The condition is true 
+                        The condition is true
+                        The condition is true 
+                         ... #This code will run forever because my_bool (the condition) will allways be true</code></li>
+                </ul>
+            </section>
+            <div class="divider"></div>
+            <section class="main-section" id="Reference">
+                <header>Reference</header>
+                <p>All documentation is taken from <a href="https://www.pythontutorial.net/python-basics/" target="_blank">pythontutorial.net</a> and <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">wikipedia</a></p>
+            </section>
+        </main>
+        <div id="signature">
+            <p><a href="https://saxxe-dev.github.io/" target="_blank">srobla 08/2022</a></p>
+        </div>
+    </body>
+</html>

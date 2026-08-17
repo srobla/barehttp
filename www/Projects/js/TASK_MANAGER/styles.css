@@ -1,0 +1,263 @@
+:root{
+    --light: #D7F2BA;
+    --midL: #BDE4A8;
+    --midD: #9CC69B;
+    --dark: #4E621F;
+    --black: #171B13;
+    --white: rgb(209, 209, 209);
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 18px;
+    background-color: var(--midD);
+}
+
+@media only screen and (max-width: 900px){
+    html{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    header{
+        text-align: center;
+    }
+    #manager{
+	margin: auto;
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+textarea{
+    font-family: inherit;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--dark);
+    color: var(--white);
+    padding-left: 1rem;
+}
+
+#title{
+    letter-spacing: .2rem;
+}
+
+main{
+    height: 100vh;
+}
+
+#manager{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 4rem;
+    padding-left: 2rem;
+    padding-bottom: 2.5rem;
+    gap: 1rem;
+    min-height: 15rem;
+    flex-wrap: wrap;
+}
+
+#taskGroup{
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+    width: 20rem;
+    background-color: var(--light);
+}
+
+#taskGroupName{
+    font-size: 1.4rem;
+    font-weight: bold;
+    max-width: 15rem;
+    height: 2rem;
+    padding-top: .2rem;
+    background-color: inherit;
+}
+
+#deleteTaskGroup{
+    font-size: 1.5rem;
+    position: relative;
+    bottom: .5rem;
+    left: .7rem;
+    border: none;
+    background-color: inherit;
+}
+
+#deleteTaskGroup:hover{
+    font-size: 1.7rem;
+    position: relative;
+    bottom: .5rem;
+    left: 0;
+    border: none;
+    background-color: inherit;
+}
+
+#taskContainer{
+    background-color: var(--dark);
+    width: fit-content;
+    border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: .2rem;
+}
+
+
+#task{
+    padding: .4rem 1rem 0;
+    display: flex;
+    gap: .5rem;
+    
+    
+}
+
+#task:hover{
+    box-shadow: #171B13 0rem .2rem;
+}
+
+#taskDescription{
+    width: 12rem;
+    font-size: 1.2rem;
+    background-color: inherit;
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: .1rem;
+}
+
+#task button{
+    padding: .2rem;
+    font-size: 1.2rem;
+    background-color: inherit;
+    border: none;
+}
+
+#checkButton{
+    color: rgb(4, 196, 255);
+}
+
+#trashButton{
+    color: rgb(156, 7, 7);
+}
+
+#addTask{
+    font-size: 2rem;
+    padding: 0 .6rem;
+    background-color: inherit;
+    color: var(--white);
+    border: none;
+    border-radius: .8rem;
+}
+
+#addTask:hover{
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+#addTaskGroup{
+    font-size: 3rem;
+    padding: 0 .8rem;
+    border: none;
+    background-color: var(--midD);
+    border-radius: 1rem;
+
+}
+
+#addTaskGroup:hover{
+    color: var(--midD);
+    background-color: var(--black);
+}
+
+
+
+
+.checked #taskDescription{
+   text-decoration:line-through;
+}
+
+.unchecked #reTaskButton{
+    display: none;
+}
+
+#taskContainer > .checked {
+    border-top: black 2px solid;
+}
+
+#taskContainer > .checked ~ .checked {
+    border: none;
+}
+
+.checked #reTaskButton{
+    display: normal;
+}
+
+.checked #checkButton{
+    display: none;
+}
+
+.unchecked #checkButton{
+    display: normal;
+}
+
+.area{
+    resize: none;
+    border: none;
+    background-color: var(--midD);
+}
+
+.area:focus{
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+#task button:hover{
+    position: relative;
+    bottom: .5rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark);
+    width: 100vw;
+    text-align: center;
+    height: 2rem;
+    padding-top: 1rem;
+    box-sizing: content-box;
+}
+
+#signature{
+	text-align: center;
+	font-size: 1.2rem;
+	display: block;
+	width: auto;	
+    font-style: italic;
+}
+
+#signature a{
+    color: var(--black);
+    text-decoration: none;
+}
+
+#signature a:hover{
+    color: var(--white);
+}

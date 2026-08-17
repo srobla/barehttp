@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="title">Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <section id="playGround">
+            <div id="displayCountDiv">
+                <h2 id="displayCount">Move: </h2>
+            </div>
+            <div id="makeMove">
+                <button onclick="play(0)" class="playButt"><img src="rock.png" alt="rock" ></button>
+                <button onclick="play(1)" class="playButt"><img src="paper.png" alt="paper" ></button>
+                <button onclick="play(2)" class="playButt"><img src="scissors.png" alt="scissors" ></button>
+            </div>
+            <div id="display">
+                <h3 id="displayPlay"></h3>
+                <h3 id="whoWin"></h3>
+            </div>
+        </section>
+        <section id="endScreen" class="invisible">
+            <button onclick="reload()" id="reloadButton"><div><p id="endScreenText">WINNER</p> <p>Play Again</p></div></button>
+        </section>
+    </main>
+    <footer>
+        <div id="signature">
+            <p><a href="https://saxxe-dev.github.io" target="_blank">srobla 09/2022</a></p>
+        </div>
+    </footer>
+</body>
+<script src="rockPaperScissors.js"></script>
+</html>

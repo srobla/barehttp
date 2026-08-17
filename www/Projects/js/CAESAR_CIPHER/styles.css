@@ -1,0 +1,157 @@
+:root{
+    --bg: #fcebd1;
+    --emph: #F6CA83; 
+    --emphL: #f0d4a7; 
+    --emphD:rgb(250, 182, 74); 
+    --black: #33322E;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 20px;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+    background-color: var(--bg);
+    max-height: 100vh;
+    color: var(--black);
+}
+
+header{
+    background-color: var(--emph);
+    width: 100vw;
+    text-align: center;
+}
+#title{
+    display: inline-block;
+    font-size: 2rem;
+}
+
+main{
+    padding: 1rem;
+}
+
+#selectRot{
+    margin: 1rem 0;
+}
+
+#selectRot input{
+    text-align: center;
+    width: 2rem;
+}
+
+#desc{
+   font-size: 0.8rem;
+}
+
+#cipher{
+    display: block;
+    margin: auto;
+    text-align: center;
+    max-width: 50rem;
+}
+
+button{
+    padding: 0.5rem;
+    border: 1px solid var(--bg);
+    background-color: var(--emph);
+}
+
+button:hover{
+    border: 1px solid black;
+}
+
+button:active{
+    background-color: var(--emphD);
+}
+#changeModeButton{
+    display: block;
+    margin: 2rem auto;
+}
+
+#input-output{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+textarea{
+    display: inline;
+    text-align: center;
+    height: 3rem;
+    resize: none;
+    background-color: var(--emphL);
+}
+
+#info{
+    margin: 3rem auto;
+    /* background-color: aqua; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50rem;
+}
+
+img{
+    margin: 1rem 0;
+    width: 60vw;
+    max-width: 30rem;
+}
+
+#info h2{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#info a{
+    color: black;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    background-color: var(--emph);
+}
+
+#signature{
+	text-align: center;
+	font-size: 18px;
+	display: block;
+	margin-left: 5px;
+	margin-right: 100px;
+    bottom:5px;
+	width: 98%;	
+    font-style: italic;
+}
+
+#signature a{
+    color:  black;
+    text-decoration: none;
+}
+
+#signature a:hover{
+    color: gray;
+}
+
+@media only screen and (max-width: 600px){
+    #input-output{
+        flex-direction: column;
+    }
+    html{
+        font-size: 16px;
+    }
+}

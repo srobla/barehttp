@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Survey</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <h1 id="title">Survey test</h1>
+        <p id="description">This is a survey test</p>
+        <form id="survey-form">
+            <fieldset>
+                <label id="name-label">Enter your name here: <input id="name" required type="text" name="name" placeholder="Example name"></label>
+                <label id="email-label">Enter your email here: <input id="email" required type="email" name="email" placeholder="Example@example.com"></label>
+                <label id="number-label">Enter your age here: <input id="number" type="number" name="age" min="18" max="120" placeholder="29"></label>
+                <label> What is your curren Role?
+                    <select id="dropdown">
+                        <option value="">Select option</option>
+                        <option value="1">Studingt</option>
+                        <option value="2">Working</option>
+                        <option value="3">Studing and working</option>
+                        <option value="4">Nothing</option>
+                        <option value="5">Prefer not to say</option>
+                        <option value="6">Other</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <h3>Would you recommend this survey to someone?</h3>
+                <label><input type="radio" required name="recomendation" value="1" class="block"> No </label>
+                <label><input type="radio" required name="recomendation" value="1" class="block"> May be </label>
+                <label><input type="radio" required name="recomendation" value="1" class="block"> Probably </label>
+                <label><input type="radio" required name="recomendation" value="1" class="block"> Yes </label>
+            </fieldset>
+            <fieldset class="usagee">
+                <h3>What features of this survey do you like?</h3>
+                <input type="checkbox" name="usage" value="0" class="block"> Background
+                <input type="checkbox" name="usage" value="1" class="block"> Colors
+                <input type="checkbox" name="usage" value="2" class="block"> Fonts
+                <input type="checkbox" name="usage" value="3" class="block"> Arrangement
+            </fieldset>
+            <fieldset >
+                <label>Any suggestion to imporove the survey?
+                <textarea name="suggestion" id="" cols="30" rows="10" placeholder="Write here your suggestions"></textarea>
+                </label>
+            </fieldset>
+            <Input id="submit" name="submit-button" type="submit" value="SUBMIT"></Input>
+            <div id="signature">
+                <p><a href="https://saxxe-dev.github.io/" target="_blank">srobla 08/2022</a></p>
+            </div>
+        </form>
+    </body>
+
+</html>

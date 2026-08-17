@@ -1,0 +1,189 @@
+:root{
+    --thistile: #DFC2F2;
+    --pinkLavander: #CFB3CD;
+    --rythm: #888098;
+    --charcoal: #344055;
+    --xiketic: #191318;
+
+    --pinkLavanderG: #CFB3CDC9;
+    --rythmG: #888098FF;
+    --charcoalG: #344055;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 20px;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.1rem;
+}
+
+body{
+    background-color: var(--xiketic);
+    color: var(--pinkLavander)
+}
+
+header{
+    background-color: var(--charcoal);
+    width: 100vw;
+    text-align: center;
+    position: fixed;
+    color: var(--thistile)
+}
+main{
+    padding-top: 6rem;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+#playGround{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#makeMove{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+#display{
+    text-align: center;
+}
+
+#displayPlay{
+    font-size: 1rem;
+}
+
+#whoWin{
+    padding-top: 2rem;
+    font-size: 2.5rem;
+}
+
+
+button{
+    font-family: inherit;
+    background-color: var(--pinkLavander);
+    border-radius: 50%;
+    border: none;
+    height: 7rem;
+    width: 7rem;
+}
+
+.playButt:hover{
+    height: 7.5rem;
+    width: 7.5rem;
+    background-color: var(--rythm);
+}
+
+.playButt:active{
+    background-color: var(--charcoal);
+}
+
+
+button img{
+    width: 5rem;
+}
+
+#title{
+    font-size: 3rem;
+}
+
+#endScreen{
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: opacity .5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(var(--charcoalG), var(--rythmG), var(--pinkLavanderG));
+}
+
+#endScreen:hover{
+    opacity: 1;
+}
+
+#endScreen button{
+    background-color: var(--xiketic);
+    color: var(--pinkLavander);
+    font-size: 4rem;
+    width: 20rem;
+    height: 20rem;
+}
+
+#endScreen button:hover{
+    color: var(--xiketic);
+    background-color: var(--pinkLavander);
+}
+
+#endScreen button:active{
+    color: var(--pinkLavander);
+}
+
+
+
+.invisible{
+    opacity: 0;
+    display: none !important;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--charcoalG);
+    width: 100vw;
+    text-align: center;
+    height: 2rem;
+    padding-top: 1rem;
+    box-sizing: content-box;
+}
+
+#signature{
+	text-align: center;
+	font-size: 1.2rem;
+	display: block;
+	width: auto;	
+    font-style: italic;
+}
+
+#signature a{
+    color: var(--rythm);
+    text-decoration: none;
+}
+
+#signature a:hover{
+    color: var(--pinkLavanderG);
+}
+
+@media only screen and (max-width: 900px){
+    html{
+        font-size: 18px;
+    }
+    #makeMove{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    html{
+        font-size: 16px;
+    }
+    #manager{
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+}

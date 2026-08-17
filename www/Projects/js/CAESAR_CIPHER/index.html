@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header><h1 id="title">CAESAR CIPHER</h1></header>
+    <main>
+        <section id="cipher">
+            <h2 id="mode">ENCODE ROT13</h2>
+            <div id="selectRot">
+                <p>Select ROT:</p><input type="number" id="num" value="13" onchange="updateValue()">
+                <p id="desc">ROTx means rotate by x places each letter.</p>
+            </div>
+            <button id="changeModeButton" onclick="changeMode()">CHANGE MODE</button>
+            <div id="input-output">
+                <textarea name="input" id="input" cols="30" rows="10" placeholder="Input"></textarea>
+                <button onclick="cipher()" id="cipherButton" >ENCODE</button>
+                <textarea name="output" id="output" cols="30" rows="10" placeholder="Output"></textarea>
+            </div>
+        </section>
+        <section id="info">
+            <p>In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet.</p>
+            <img src="Caesar_cipher-removebg-preview.png" alt="cipher image">
+            <h2>Fore more info visit <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">Caesar's cipher wikipedia page</a></h2>
+        </section>
+    </main>
+    <footer>
+        <div id="signature">
+            <p><a href="https://saxxe-dev.github.io" target="_blank">srobla 09/2022</a></p>
+        </div>
+    </footer>
+    <script src="cipher.js"></script>
+</body>
+</html>

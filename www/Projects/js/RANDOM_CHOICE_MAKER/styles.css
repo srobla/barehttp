@@ -1,0 +1,113 @@
+:root{
+    --bg: #EAD7D7;
+    --dark: #B49FCC;
+    --white: rgb(221, 221, 221);
+    --brdr: #412234;
+    --sec: #6D466B;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* font-family: 'Permanent Marker', cursive; TOCHO
+font-family: 'Righteous', cursive; NORMAL*/
+
+html{
+    scroll-behavior: smooth;
+    font-size: 20px;
+}
+
+body{
+    font-family: cursive;
+    background-color: var(--bg);
+    /* max-height: 100vh; */
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: var(--dark);
+    width: 100%;
+    text-align: center;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#choiceMaker{
+    color: white;
+    border: 3px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--sec);
+    text-align: center;
+    width: 80%;
+    max-width: 700px;
+}
+
+#guide{
+    margin-bottom: 1rem;
+}
+
+#choicesInput{
+    height: 5rem;
+    min-width: 20rem;
+    text-align: center;
+    font-size: 1rem;
+    resize: none;
+    border-radius: 0.5rem;
+    background-color: var(--dark);
+    font-weight: 700;
+    font-size: 1rem;
+    color: black;
+    padding: .5rem 1rem;
+}
+
+button{
+    margin: .5rem 0;
+    padding: 0.4rem;
+    font-family: cursive;
+    font-weight: 800;
+    font-size: .8rem;
+    background-color: var(--dark);
+    border: 2px solid var(--brdr);
+    border-radius: .3rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark);
+    width: 100vw;
+    text-align: center;
+    height: 2rem;
+    padding-top: 1rem;
+    box-sizing: content-box;
+}
+
+#signature{
+	text-align: center;
+	font-size: 1rem;
+	display: block;
+	width: auto;	
+    font-style: italic;
+}
+
+#signature a{
+    color: var(--brdr);
+    text-decoration: none;
+}
+
+#signature a:hover{
+    color:whitesmoke;
+}
