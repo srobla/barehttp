@@ -55,16 +55,15 @@ def test_mime_type(server):
     assert "Content-Type" in r.headers
     assert "html" in r.headers["Content-Type"]
     r = requests.get(f"{server}/example.pdf")
-    print(r.status_code)
-    print(r.text)
-    print(r.headers)
     assert "Content-Type" in r.headers
     assert "application/pdf" in r.headers["Content-Type"]
 
 
 def test_cgi_get(server):
     r = requests.get(f"{server}/cgi-bin/hello.py?name=bob")
-    print(r.status_code)
-    print(r.headers)
-    print(r.text)
-    assert "hello" in r.text
+    assert "CGI executed with arguments: name=bob" in r.text
+
+def test_cgi_post(server):
+    r = requests.post(f"{server}/cgi-bin/hello.py", "name=alice")
+    assert "CGI executed with arguments: name=alice" in r.text
+

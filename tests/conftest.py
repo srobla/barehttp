@@ -1,20 +1,8 @@
 """
 Shared pytest fixtures for the HTTP server test suite.
-
 Each test gets an isolated docroot (tmp_path) and a fresh server
 instance on a free port, so tests can run in parallel and don't
 depend on external state.
-
-ASSUMPTIONS TO VERIFY / ADJUST:
-- SERVER_BIN points at the compiled server binary. Override with the
-  SERVER_BIN env var if the path differs (e.g. in CI).
-- The server reads its config from "server.conf" in its current
-  working directory (matching launch_ab.sh's "../server.conf"
-  pattern) rather than a fixed compiled-in path. If DEF_CONF_FILE is
-  hardcoded to something else, change `cwd` / conf_path below.
-- server.conf field names match server_conf/initialize_server_conf
-  in main.c: listen_port, server_root, server_signature, log_file,
-  timeout_ms, pool_size, queue_size, backlog.
 """
 import os
 import signal
@@ -68,14 +56,8 @@ def docroot(tmp_path):
     script_body = f"""\
             #!{sys.executable} python3
             import sys
-            import os
-            marker = os.path.join(os.path.dirname(__file__), "../cgi-executed.marker")
-            with open(marker, "w") as f:
-            f.write("CGI EXECUTED\\n")
-            print("Content-Type: text/html")
-            print()
-            print(hello from cgi)
-            sys.stdout.write("hellooooo from cgi")
+            input_data = sys.stdin.read()
+            sys.stdout.write("CGI executed with arguments: " + input_data)
             sys.stdout.flush()
             """
     print()

@@ -1,9 +1,5 @@
-"""
-Path traversal and other request-boundary abuse. These assert on
-actual response content, not just status code, since a traversal
-"blocked" with a 200 that still leaks the file is still a failure.
-"""
 import requests
+import socket
 
 
 def test_path_traversal_dotdot(server, secret_file):
@@ -29,8 +25,14 @@ def test_path_traversal_double_slash(server, secret_file):
 def test_huge_url_rejected_not_crashed(server):
     big_path = "A" * 10000
     r = requests.get(f"{server}/{big_path}", timeout=5)
-    assert r.status_code in (400, 404, 414)
+    assert r.status_code == 400
 
-    # server must still be alive for the next request
+    # Still alive?
     r2 = requests.get(f"{server}/")
     assert r2.status_code == 200
+
+def test_null_byte_in_path(server, docroot):
+    r = requests.get(f"{server}/index.html%00.jpg")
+    assert r.status_code == 404
+    assert "hello" not in r.text  # must not have served index.html's content
+
