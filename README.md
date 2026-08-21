@@ -297,6 +297,28 @@ timeout_ms = 1000
 
 A value of `0` disables the timeout.
 
+### Symlinks
+
+If the service being hosted by the server allows to upload files, a malicious attacker could create and upload a symlink pointing outside of the server root directory, and then get that file, gaining access to not allowed paths.
+
+For example, a symlink could be uploaded pointing to `/etc/password`:
+
+```bash
+www
+ | 
+ ├── index.html
+ |
+ ├── secret -> /etc/password
+```
+
+Then, if not checked correctly, `GET secret` would return the content inside `/etc/password`.
+
+A simple solution is calling `open` with `O_NOFOLLOW`. This prevents symlink files, but fails on preventing symlink directories.
+
+To prevent all kind of symlink attacks, we changed the way in which we open files and execute CGI scripts.
+
+When instanizating the server structure, we open the root directory and store the file descriptor. Then each the server access a file, it uses `openat2` with `RESOLVE_BENEATH` and `RESOLVE_NO_SYMLINKS` preventing symlink uses.
+
 ---
 
 ## Code Documentation

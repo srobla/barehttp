@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <signal.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
@@ -91,6 +93,9 @@ server_conf *initialize_server_conf(char *conf_filename){
     sc->timeout_ms = cfg_getint(cfg, "timeout_ms");
 
     cfg_free(cfg);
+
+    sc->root_fd = open(sc->server_root, O_DIRECTORY | O_RDONLY | O_CLOEXEC);
+    if(sc->root_fd < 0) return NULL;
      
     return sc;
 }

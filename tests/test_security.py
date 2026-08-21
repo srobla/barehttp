@@ -1,5 +1,6 @@
 import requests
-import socket
+import pytest
+import os
 
 
 def test_path_traversal_dotdot(server, secret_file):
@@ -36,3 +37,39 @@ def test_null_byte_in_path(server, docroot):
     assert r.status_code == 404
     assert "hello" not in r.text  # must not have served index.html's content
 
+
+def test_symlink_outside_docroot_not_served(server, docroot, secret_file):
+    """
+    A symlink can be created to point outside of the server root directory.
+    """
+    link = docroot / "escape.txt"
+    try:
+        os.symlink(secret_file, link)
+    except OSError:
+        pytest.skip("symlinks not supported in this environment")
+ 
+    r = requests.get(f"{server}/escape.txt")
+    assert "THIS SHOULD NEVER BE SERVED" not in r.text
+
+
+def test_symlink_directory_outside_docroot_not_served( server, docroot, tmp_path):
+    """
+    A symlinked directory must not allow access to files outside
+    of the server root directory.
+    """
+    outside_dir = tmp_path / "outside"
+    outside_dir.mkdir()
+
+    secret = outside_dir / "secret.txt"
+    secret.write_text("THIS SHOULD NEVER BE SERVED")
+
+    link = docroot / "files"
+
+    try:
+        os.symlink(outside_dir, link, target_is_directory=True)
+    except OSError:
+        pytest.skip("symlinks not supported in this environment")
+
+    r = requests.get(f"{server}/files/secret.txt")
+
+    assert "THIS SHOULD NEVER BE SERVED" not in r.text

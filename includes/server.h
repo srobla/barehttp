@@ -9,6 +9,7 @@
  */
 typedef struct _server_conf {
     char *server_root;          /**< Path to the server root directory */
+    int root_fd;                /**< Fd pointing to root directory */
     int listen_port;            /**< Port for client connections */
     char *server_signature;     /**< Server name */
     char *log_file;             /**< Base name for log files */
