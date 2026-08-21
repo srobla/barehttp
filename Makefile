@@ -7,12 +7,31 @@ LIB_DIR = lib
 INC_DIR = includes
 DOC_DIR = doc
 
-CFLAGS = -Wall -ansi -pedantic -g -std=c11 -I$(INC_DIR)
+COMMON_CFLAGS = -Wall -ansi -pedantic -std=c11 -I$(INC_DIR) 
+
+DEV_CFLAGS = $(COMMON_CFLAGS) -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer
+DEV_LDFLAGS = -fsanitize=address,undefined
+
+PROD_CFLAGS = $(COMMON_CFLAGS) -O2
+PROD_LDFLAGS =
 
 LIBS = $(LIB_DIR)/libpicohttpparser.a $(LIB_DIR)/libtcp.a $(LIB_DIR)/libhttp.a $(LIB_DIR)/libqueue.a $(LIB_DIR)/liblogs.a $(LIB_DIR)/libqueue.a
 OBJS = $(OBJ_DIR)/server.o
 
 COMP_LIBS = -lconfuse -lpthread -lhttp -lpicohttpparser -ltcp -ltcp -lqueue -llogs
+
+# Build modes
+
+production: 
+	$(MAKE) clean
+	$(MAKE) CFLAGS="$(PROD_CFLAGS)" LDFLAGS="$(PROD_LDFLAGS)" all
+
+develop:
+	$(MAKE) clean
+	$(MAKE) CFLAGS="$(DEV_CFLAGS)" LDFLAGS="$(DEV_LDFLAGS)" all
+
+
+# Build
 
 all: dirs $(LIBS) $(EXE)
 
@@ -54,7 +73,7 @@ $(LIB_DIR)/liblogs.a: $(OBJ_DIR)/logs.o
 
 # Enlazamos en el ejecutable final
 $(EXE): $(OBJS) libs
-	gcc $(OBJS) -L$(LIB_DIR) $(COMP_LIBS) -o $@
+	gcc $(LDFLAGS) $(OBJS) -L$(LIB_DIR) $(COMP_LIBS) -o $@
 
 clean: clean_logs clean_libs
 	rm -f $(EXE) $(OBJS) $(OBJ_DIR)/*.o

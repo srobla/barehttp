@@ -21,3 +21,6 @@ shell.nix
 # Tests
 tests/venv
 tests/__pycache__
+
+# Benchmarks
+benchmark/

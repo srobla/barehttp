@@ -67,3 +67,10 @@ def test_cgi_post(server):
     r = requests.post(f"{server}/cgi-bin/hello.py", "name=alice")
     assert "CGI executed with arguments: name=alice" in r.text
 
+
+def test_big_path(server):
+    big_path = "X" * 10000
+    r = requests.get(f"{server}/{big_path}")
+    print(r.headers)
+    print(big_path)
+    assert r.status_code == 400

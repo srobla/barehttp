@@ -71,21 +71,25 @@ The test scripts additionally use:
 
 ## Build
 
-The project uses `make` for compilation.
+The project uses `make` for compilation. It has two main targets for building the executable:
 
 ### Build the server
 
 ```bash
-make
+make develop / production
 ```
 
-The default target compiles the libraries and generates the server executable.
+- `production` adds production flags (optimization)
+
+- `develop` adds develop flags (sanitizers, lower optimization)
 
 ### Available targets
 
 | Command           | Description                                |
 | ----------------- | ------------------------------------------ |
 | `make`            | Builds the libraries and server executable |
+| `make develop`    | Builds with develop flags                  |
+| `make production` | Builds with production flags               |
 | `make libs`       | Builds only the libraries                  |
 | `make docs`       | Generates Doxygen documentation            |
 | `make clean`      | Removes object files, libraries, and logs  |
