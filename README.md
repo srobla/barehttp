@@ -358,6 +358,14 @@ The project focuses on several systems-programming concerns:
 
 The implementation also includes dedicated static libraries for the main subsystems, keeping networking, HTTP handling, logging, and connection management separated from the main server program.
 
+### Epoll
+- why is better
+- Problems with implementations
+- Benchmarking
+- Sending big files.
+- Process response splitting 
+
+
 ---
 
 ## Limitations

@@ -4,6 +4,7 @@
  *
  * @author Samuel Robla y Ángela Horcajo
  */
+#include <asm-generic/errno.h>
 #define _GNU_SOURCE
 #include <errno.h>
 #include <fcntl.h>
@@ -335,9 +336,14 @@ int send_file(int root_fd, const char *requested_path, int clientfd) {
     offset = 0;
 
     while (offset < st.st_size) {
+        printf("Sending file\n");
         bytes_sent = sendfile(clientfd, fd, &offset, st.st_size - offset);
-        if (bytes_sent <= 0)
+        if (bytes_sent <= 0){
+            if(errno==EWOULDBLOCK)printf("EWOULDBLOCK. ");
+            if(errno==EPIPE)printf("EPIPE. ");
+            perror("Error sending big file");
             break;
+        }
     }
     if (offset < st.st_size)
         return -1;

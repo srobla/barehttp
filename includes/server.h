@@ -22,4 +22,6 @@ typedef struct _server_conf {
                                 is full, before they start being rejected */
 }server_conf;
 
+typedef struct _client_data client_data;
+
 #endif

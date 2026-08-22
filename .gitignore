@@ -24,3 +24,6 @@ tests/__pycache__
 
 # Benchmarks
 benchmark/
+
+# Binaries
+www/big.bin
